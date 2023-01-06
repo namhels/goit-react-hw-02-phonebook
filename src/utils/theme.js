@@ -2,7 +2,6 @@ export const theme = {
   colors: {
     black: '#000',
     white: '#fff',
-    grey: '#020203',
     textPrimary: '#2d3a4b',
     textSecondary: '#8d9aa7',
     textStatistics: '#5d6266',
@@ -54,6 +53,7 @@ export const theme = {
   radii: {
     none: '0',
     normal: '4px',
+    medium: '10px',
     middle: '16px',
     round: '50%',
   },

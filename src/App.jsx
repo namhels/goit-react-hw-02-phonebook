@@ -58,7 +58,10 @@ class App extends Component {
     const { filter } = this.state
     const visibleContacts = this.getVisibleContacts();
     return (
-      <Box p={5} bg="backgroundPrimary">
+      <Box p={5} backgroundImage="linear-gradient(45deg, rgb(0, 219, 222), rgb(252, 0, 255))">
+        <Box bg="backgroundPrimary" boxShadow="small" borderRadius={8}
+          p={5}  maxWidth="435px" mx="auto"
+        >
         <Title text='Phonebook'></Title>
         <Form onSubmit={this.addContact}></Form>
         <Title text='Contacts'></Title>
@@ -68,6 +71,8 @@ class App extends Component {
           onDeleteContact={this.deleteContact}
         />
       </Box>
+      </Box>
+
     )
   };
 };
