@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
+import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 import Box from 'components/Box';
-import Title from 'components/Phonebook/Title';
+import { Headline } from 'components/Phonebook/Title';
 import Form from 'components/Phonebook/Form';
 import ContactList from 'components/Phonebook/ContactList';
 import  Filter  from 'components/Phonebook/Filter';
@@ -24,15 +27,14 @@ class App extends Component {
       name,
       number,
     };
-
     if (contacts.find((el) => el.name === contact.name)) {
-      alert(`${contact.name} is already in contacts`);
+      toast.error(`${contact.name} is already in contacts`);
       return;
     }
-
     this.setState(({ contacts }) => ({
       contacts: [contact, ...contacts],
     }))
+    toast.success(`${contact.name} was added to contacts`);
   };
 
   changeFilter = e => {
@@ -48,31 +50,44 @@ class App extends Component {
     );
   };
 
-  deleteContact = contactId => {
+  deleteContact = ({ id, name }) => {
+    console.log(id, name);
     this.setState(prevState => ({
-      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
+    toast.warn(`${name} was deleted from contacts`);
   };
 
   render() {
     const { filter } = this.state
     const visibleContacts = this.getVisibleContacts();
     return (
-      <Box p={5} backgroundImage="linear-gradient(45deg, rgb(0, 219, 222), rgb(252, 0, 255))">
-        <Box bg="backgroundPrimary" boxShadow="small" borderRadius={8}
-          p={5}  maxWidth="435px" mx="auto"
-        >
-        <Title text='Phonebook'></Title>
-        <Form onSubmit={this.addContact}></Form>
-        <Title text='Contacts'></Title>
-        <Filter value={filter} onChange={this.changeFilter} />
-        <ContactList
-          contacts={visibleContacts}
-          onDeleteContact={this.deleteContact}
+      <Box p={5}
+        backgroundImage="linear-gradient(45deg, rgb(0, 219, 222), rgb(252, 0, 255))">
+        <Box
+          bg="backgroundPrimary" boxShadow="small" borderRadius={8} p={5}  maxWidth="435px" mx="auto">
+          <Headline HeadlineLogo>Phonebook</Headline>
+          <Form onSubmit={this.addContact}></Form>
+          <Headline>Contacts</Headline>
+          <ContactList
+            contacts={visibleContacts}
+            onDeleteContact={this.deleteContact}>
+            <Filter value={filter} onChange={this.changeFilter} />
+          </ContactList>
+        </Box>
+        <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
         />
       </Box>
-      </Box>
-
     )
   };
 };

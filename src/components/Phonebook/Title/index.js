@@ -1,1 +1,1 @@
-export { default } from './Title';
+export * from './Title.Styled';

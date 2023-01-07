@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Item } from './ContactItem.Styled';
+import { Button, Item } from './ContactItem.Styled';
 
 const ContactItem = ({ name, number, onDeleteContact }) => {
   return (
     <Item>
       <p>{name}: {number}</p>
-      <button
+      <Button
         type="button"
         onClick={onDeleteContact}
       >
         delete
-      </button>
+      </Button>
     </Item>
   );
 };

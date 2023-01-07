@@ -59,7 +59,7 @@ export const theme = {
   },
   shadows: {
     small: '0px 3px 5px 1px rgba(0, 0, 0, 0.12)',
-    medium: '0px 3px 10px 5px rgba(0, 0, 0, 0.15)',
+    mediumBlue: '0px 5px 10px 0px rgba(7, 183, 180, 0.75)',
     // large: 16,
   },
 };

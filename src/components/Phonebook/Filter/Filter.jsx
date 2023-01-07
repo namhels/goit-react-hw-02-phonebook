@@ -1,12 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Input, Label } from './Filter.Styled';
+import { Input } from './Filter.Styled';
 
 const Filter = ({ value, onChange }) => (
-  <Label>
-    Find contacts by name
-    <Input type="text" value={value} onChange={onChange} />
-  </Label>
+    <Input type="text" value={value} onChange={onChange} placeholder="Find contacts by name"/>
 );
 
 Filter.propTypes = {

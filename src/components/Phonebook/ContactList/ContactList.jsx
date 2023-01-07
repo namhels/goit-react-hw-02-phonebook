@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { List } from './ContactList.Styled';
 import ContactItem from '../ContactItem';
 
-const ContactList = ({contacts, onDeleteContact}) => (
-    <List>
+const ContactList = ({contacts, onDeleteContact, children}) => (
+  <List>
+    {children}
     {contacts.map(({ id, name, number }) => (
       <ContactItem key={id} name={name} number={number}
-        onDeleteContact={() => onDeleteContact(id)}>
+        onDeleteContact={() => onDeleteContact({id, name})}>
       </ContactItem>
       ))}
     </List>
