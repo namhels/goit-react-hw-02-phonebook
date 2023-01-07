@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
 import 'react-toastify/dist/ReactToastify.min.css';
 import Box from 'components/Box';
 import { Headline } from 'components/Phonebook/Title';
@@ -12,10 +11,10 @@ import  Filter  from 'components/Phonebook/Filter';
 class App extends Component {
   state = {
     contacts: [
-    {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
-    {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
-    {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
-    {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
+    {id: 'id-1', name: 'Howard Roark', number: '459-12-56'},
+    {id: 'id-2', name: 'Dominique Francon', number: '443-89-12'},
+    {id: 'id-3', name: 'John Galt', number: '645-17-79'},
+    {id: 'id-4', name: 'Dagny Taggart', number: '227-91-26'},
   ],
   filter: '',
   };
@@ -43,7 +42,7 @@ class App extends Component {
 
   getVisibleContacts = () => {
     const { filter, contacts } = this.state;
-    const normalizedFilter = filter.toLowerCase();
+    const normalizedFilter = filter.toLowerCase().trim();
 
     return contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizedFilter),
@@ -51,7 +50,6 @@ class App extends Component {
   };
 
   deleteContact = ({ id, name }) => {
-    console.log(id, name);
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
@@ -76,7 +74,7 @@ class App extends Component {
           </ContactList>
         </Box>
         <ToastContainer
-        position="top-center"
+        position="top-right"
         autoClose={2000}
         hideProgressBar={false}
         newestOnTop={false}

@@ -1,6 +1,6 @@
 // import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Button, ContactForm, Input } from './Form.Styled';
+import { Button, ContactForm, Input } from './FormikForm.Styled';
 
 class Form extends Component {
 //   static propTypes = {
