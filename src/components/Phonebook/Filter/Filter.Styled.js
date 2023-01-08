@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { MdFindInPage } from 'react-icons/md';
 
 const Input = styled.input`
-  width: 70%;
+  width: 94%;
   margin-bottom: ${p => p.theme.space[4]}px;
-  padding-left: ${p => p.theme.space[4]}px;
+  padding-left: ${p => p.theme.space[5]}px;
   padding-top: ${p => p.theme.space[3]}px;
   padding-bottom: ${p => p.theme.space[3]}px;
   font-family: ${p => p.theme.fonts.heading};
@@ -14,9 +15,6 @@ const Input = styled.input`
   border-radius: ${p => p.theme.radii.middle};
   box-shadow: ${p => p.theme.shadows.small};
   transition: all 300ms;
-  :focus {
-    color: ${p => p.theme.colors.halloween[1]};
-  }
   :hover {
     border-color: ${p => p.theme.colors.blues[0]};
     box-shadow: ${p => p.theme.shadows.mediumBlue};
@@ -29,4 +27,13 @@ const Input = styled.input`
   }
 `;
 
-export { Input };
+const FindIcon = styled(MdFindInPage)`
+  position: absolute;
+  top: 50%;
+  left: ${p => p.theme.space[4]}px;
+  transform: translateY(-100%);
+  color: ${p => p.theme.colors.blues[0]};
+  transition: all 300ms;
+`;
+
+export { Input, FindIcon };

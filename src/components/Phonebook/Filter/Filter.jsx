@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Input } from './Filter.Styled';
+import { FindIcon, Input } from './Filter.Styled';
+import Box from 'components/Box';
 
 const Filter = ({ value, onChange }) => (
-    <Input type="text" value={value} onChange={onChange} placeholder="Find contacts by name"/>
+    <Box position="relative" display="flex" width="70%">
+      <Input type="text" value={value} onChange={onChange} placeholder="Find contacts by name" />
+      <FindIcon/>
+    </Box>
 );
 
 Filter.propTypes = {

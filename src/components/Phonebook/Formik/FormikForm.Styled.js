@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Form, Field, ErrorMessage } from 'formik';
-// import { Form, Field } from './FormikForm';
 
 const ContactForm = styled(Form)`
   display: flex;
@@ -21,10 +20,29 @@ const ContactForm = styled(Form)`
   }
 `;
 
-const Input = styled(Field)`
+const InputWrapper = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 80%;
-  margin-bottom: ${p => p.theme.space[4]}px;
-  padding-left: ${p => p.theme.space[4]}px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: ${p => p.theme.space[5]}px;
+
+  > svg {
+    position: absolute;
+    top: 50%;
+    left: ${p => p.theme.space[4]}px;
+    transform: translateY(-50%);
+    color: ${p => p.theme.colors.blues[0]};
+    transition: all 300ms;
+  }
+`;
+
+const Input = styled(Field)`
+  width: 346px;
+  padding-left: 12px;
   padding-top: ${p => p.theme.space[3]}px;
   padding-bottom: ${p => p.theme.space[3]}px;
   font-family: ${p => p.theme.fonts.heading};
@@ -39,13 +57,44 @@ const Input = styled(Field)`
     border-color: ${p => p.theme.colors.blues[0]};
     box-shadow: ${p => p.theme.shadows.mediumBlue};
   }
+  &:not(:first-child) {
+    margin-top: ${p => p.theme.space[4]}px;
+  }
   &::placeholder {
+    // padding-left: ${p => p.theme.space[6]}px;
     transition: opacity 800ms;
   }
   :focus::placeholder {
     opacity: 0;
   }
 `;
+
+const ErrorText = styled.p`
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  padding-left: ${p => p.theme.space[4]}px;
+  padding-bottom: ${p => p.theme.space[2]}px;
+  color: ${p => p.theme.colors.white};
+  background-color: ${p => p.theme.colors.halloween[3]};
+  border: ${p => p.theme.borders.normal}${p => p.theme.colors.halloween[1]};
+  border-radius: ${p => p.theme.radii.middle};
+  transition: all 300ms;
+  :hover {
+    border-color: ${p => p.theme.colors.halloween[3]};
+    box-shadow: ${p => p.theme.shadows.mediumOrange};
+  }
+`;
+
+const FormError = ({ name }) => {
+  return (
+    <ErrorMessage
+      name={name}
+      render={message => <ErrorText>{message}</ErrorText>}
+    />
+  );
+};
 
 const Button = styled.button`
   width: 35%;
@@ -69,17 +118,4 @@ const Button = styled.button`
   }
 `;
 
-const ErrorText = styled.p`
-  color: red;
-`;
-
-const FormError = ({ name }) => {
-  return (
-    <ErrorMessage
-      name={name}
-      render={message => <ErrorText>{message}</ErrorText>}
-    />
-  );
-};
-
-export { ContactForm, Input, Button, FormError };
+export { ContactForm, Input, Button, FormError, InputWrapper };

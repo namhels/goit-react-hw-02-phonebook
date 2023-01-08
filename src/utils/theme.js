@@ -2,6 +2,7 @@ export const theme = {
   colors: {
     black: '#000',
     white: '#fff',
+    red: '#f00',
     textPrimary: '#2d3a4b',
     textSecondary: '#8d9aa7',
     textStatistics: '#5d6266',
@@ -60,6 +61,6 @@ export const theme = {
   shadows: {
     small: '0px 3px 5px 1px rgba(0, 0, 0, 0.12)',
     mediumBlue: '0px 5px 10px 0px rgba(7, 183, 180, 0.75)',
-    // large: 16,
+    mediumOrange: '0px 5px 10px 0px rgba(247, 101, 41, 0.75)',
   },
 };
