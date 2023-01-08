@@ -4,9 +4,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import Box from 'components/Box';
 import { Headline } from 'components/Phonebook/Title';
-import Form from 'components/Phonebook/Form';
 import ContactList from 'components/Phonebook/ContactList';
-import  Filter  from 'components/Phonebook/Filter';
+import Filter from 'components/Phonebook/Filter';
+// import Form from 'components/Phonebook/Form';
+import FormFormik from 'components/Phonebook/Formik';
 
 class App extends Component {
   state = {
@@ -65,7 +66,7 @@ class App extends Component {
         <Box
           bg="backgroundPrimary" boxShadow="small" borderRadius={8} p={5}  maxWidth="435px" mx="auto">
           <Headline HeadlineLogo>Phonebook</Headline>
-          <Form onSubmit={this.addContact}></Form>
+          <FormFormik onSubmit={this.addContact}></FormFormik>
           <Headline>Contacts</Headline>
           <ContactList
             contacts={visibleContacts}

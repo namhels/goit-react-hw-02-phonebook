@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+import { Form, Field, ErrorMessage } from 'formik';
+// import { Form, Field } from './FormikForm';
 
-const ContactForm = styled.form`
+const ContactForm = styled(Form)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,7 +21,7 @@ const ContactForm = styled.form`
   }
 `;
 
-const Input = styled.input`
+const Input = styled(Field)`
   width: 80%;
   margin-bottom: ${p => p.theme.space[4]}px;
   padding-left: ${p => p.theme.space[4]}px;
@@ -67,4 +69,17 @@ const Button = styled.button`
   }
 `;
 
-export { ContactForm, Input, Button };
+const ErrorText = styled.p`
+  color: red;
+`;
+
+const FormError = ({ name }) => {
+  return (
+    <ErrorMessage
+      name={name}
+      render={message => <ErrorText>{message}</ErrorText>}
+    />
+  );
+};
+
+export { ContactForm, Input, Button, FormError };
