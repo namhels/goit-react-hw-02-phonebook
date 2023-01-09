@@ -23,12 +23,11 @@ const ContactForm = styled(Form)`
 const InputWrapper = styled.div`
   position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
   width: 80%;
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: ${p => p.theme.space[5]}px;
+  :not(:first-child) {
+    margin-top: ${p => p.theme.space[4]}px;
+  }
 
   > svg {
     position: absolute;
@@ -36,13 +35,12 @@ const InputWrapper = styled.div`
     left: ${p => p.theme.space[4]}px;
     transform: translateY(-50%);
     color: ${p => p.theme.colors.blues[0]};
-    transition: all 300ms;
   }
 `;
 
 const Input = styled(Field)`
-  width: 346px;
-  padding-left: 12px;
+  width: 100%;
+  padding-left: ${p => p.theme.space[5]}px;
   padding-top: ${p => p.theme.space[3]}px;
   padding-bottom: ${p => p.theme.space[3]}px;
   font-family: ${p => p.theme.fonts.heading};
@@ -57,11 +55,7 @@ const Input = styled(Field)`
     border-color: ${p => p.theme.colors.blues[0]};
     box-shadow: ${p => p.theme.shadows.mediumBlue};
   }
-  &:not(:first-child) {
-    margin-top: ${p => p.theme.space[4]}px;
-  }
   &::placeholder {
-    // padding-left: ${p => p.theme.space[6]}px;
     transition: opacity 800ms;
   }
   :focus::placeholder {
@@ -70,12 +64,10 @@ const Input = styled(Field)`
 `;
 
 const ErrorText = styled.p`
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 100%;
-  padding-left: ${p => p.theme.space[4]}px;
-  padding-bottom: ${p => p.theme.space[2]}px;
+  width: 80%;
+  text-align: center;
+  padding-top: ${p => p.theme.space[2]}px;
+  padding-bottom: ${p => p.theme.space[3]}px;
   color: ${p => p.theme.colors.white};
   background-color: ${p => p.theme.colors.halloween[3]};
   border: ${p => p.theme.borders.normal}${p => p.theme.colors.halloween[1]};
@@ -98,6 +90,7 @@ const FormError = ({ name }) => {
 
 const Button = styled.button`
   width: 35%;
+  margin-top: ${p => p.theme.space[4]}px;
   margin-left: auto;
   margin-right: auto;
   padding: ${p => p.theme.space[3]}px;

@@ -33,7 +33,6 @@ const FindIcon = styled(MdFindInPage)`
   left: ${p => p.theme.space[4]}px;
   transform: translateY(-100%);
   color: ${p => p.theme.colors.blues[0]};
-  transition: all 300ms;
 `;
 
 export { Input, FindIcon };

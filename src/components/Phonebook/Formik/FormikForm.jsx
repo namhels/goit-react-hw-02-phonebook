@@ -35,9 +35,9 @@ const FormFormik = ({onSubmit}) => {
             required
             placeholder="Name"
           />
-          <BsFillPersonFill/>
-          <FormError name="name" />
+          <BsFillPersonFill />
         </InputWrapper>
+        <FormError name="name" />
         <InputWrapper>
           <Input
             type="tel"
@@ -45,9 +45,9 @@ const FormFormik = ({onSubmit}) => {
             required
             placeholder="Number"
           />
-          <BsFillTelephoneFill/>
-          <FormError name="number" />
+          <BsFillTelephoneFill />
         </InputWrapper>
+        <FormError name="number" />
         <Button type="submit">add contact</Button>
       </ContactForm>
     </Formik>
