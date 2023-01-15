@@ -32,8 +32,8 @@ const FormFormik = ({onSubmit}) => {
           <Input
             type="text"
             name="name"
+            placeholder="name"
             required
-            placeholder="Name"
           />
           <BsFillPersonFill />
         </InputWrapper>
@@ -42,8 +42,8 @@ const FormFormik = ({onSubmit}) => {
           <Input
             type="tel"
             name="number"
+            placeholder="number"
             required
-            placeholder="Number"
           />
           <BsFillTelephoneFill />
         </InputWrapper>
